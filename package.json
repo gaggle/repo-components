@@ -1,0 +1,64 @@
+{
+  "name": "repo-components",
+  "version": "0.0.0",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm -rf ./node_modules/.cache/ ./coverage/",
+    "storybook": "start-storybook -p 9001 -s ./node_modules/ionicons/dist",
+    "test": "jest --no-cache --silent"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.4.8",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-define": "^1.3.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.1.1",
+    "css-loader": "^1.0.0",
+    "date-fns": "^1.29.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "ionicons": "^4.2.4",
+    "jest": "^23.4.1",
+    "node-sass": "^4.9.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-storybook-addon-chapters": "^2.1.5",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0"
+  },
+  "babel": {
+    "plugins": [
+      "syntax-class-properties",
+      "transform-class-properties",
+      "transform-es2015-modules-commonjs"
+    ],
+    "presets": "react"
+  },
+  "jest": {
+    "testURL": "http://localhost",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html",
+      "text-summary"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/coverage/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/stories/"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/__mocks__/shim.js",
+      "<rootDir>/tests/__mocks__/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/tests/__mocks__/styleMock.js"
+    },
+    "testRegex": ".(test|spec)\\.jsx?$"
+  }
+}
