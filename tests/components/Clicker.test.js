@@ -1,7 +1,7 @@
 import React from 'react'
-import { shallow } from 'enzyme/build/index'
+import { shallow } from 'enzyme'
 
-import Clicker from '../../components/Clicker'
+import Clicker from '../../src/components/Clicker'
 
 describe('Clicker', () => {
   it('should have expected buttons', () => {
