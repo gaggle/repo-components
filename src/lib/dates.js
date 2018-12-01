@@ -1,4 +1,4 @@
-function getDatetime (dateStr) {
+export function getDatetime (dateStr) {
   let datetime = new Date(dateStr)
   if (!isValidDate(datetime)) {
     datetime = new Date(parseInt(dateStr))
@@ -11,11 +11,6 @@ function getDatetime (dateStr) {
   return datetime
 }
 
-function isValidDate (date) {
+export function isValidDate (date) {
   return !isNaN(Date.parse(date))
-}
-
-export {
-  getDatetime,
-  isValidDate,
 }
