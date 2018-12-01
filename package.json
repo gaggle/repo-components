@@ -2,63 +2,67 @@
   "name": "repo-components",
   "version": "0.0.0",
   "license": "ISC",
+  "main": "build/index.js",
   "scripts": {
-    "clean": "rm -rf ./node_modules/.cache/ ./coverage/",
-    "storybook": "start-storybook -p 9001 -s ./node_modules/ionicons/dist",
-    "test": "jest --no-cache --silent"
+    "build": "babel src -d build --no-comments --compact true --minified -s true && styleguidist build",
+    "clean": "rm -rf build/ coverage/ node_modules/.cache/ styleguide/",
+    "dev": "babel src -w -d build",
+    "styleguide": "styleguidist server",
+    "test": "jest --no-cache --silent --coverage"
+  },
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.8",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.0",
-    "babel-plugin-syntax-class-properties": "^6.13.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-define": "^1.3.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
-    "bootstrap": "^4.1.1",
-    "css-loader": "^1.0.0",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-class-properties": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "date-fns": "^1.29.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "ionicons": "^4.2.4",
-    "jest": "^23.4.1",
-    "node-sass": "^4.9.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-storybook-addon-chapters": "^2.1.5",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0"
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "github-colors": "^2.2.17",
+    "jest": "^23.6.0",
+    "lodash": "^4.17.11",
+    "object-path": "^0.11.4",
+    "prop-types": "^15.6.2",
+    "react-ionicons": "^2.1.6",
+    "react-masonry-component": "^6.2.1",
+    "react-styleguidist": "^8.0.6",
+    "styled-jsx": "^3.1.2",
+    "webpack": "^4.26.1"
   },
   "babel": {
     "plugins": [
-      "syntax-class-properties",
-      "transform-class-properties",
-      "transform-es2015-modules-commonjs"
+      "styled-jsx/babel",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-syntax-class-properties",
+      "@babel/plugin-transform-modules-commonjs",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-export-default-from"
     ],
-    "presets": "react"
+    "presets": [
+      "@babel/preset-react"
+    ]
   },
   "jest": {
-    "testURL": "http://localhost",
-    "collectCoverage": true,
+    "setupTestFrameworkScriptFile": "<rootDir>tests/setupEnzyme.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/setup/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*"
+    ],
     "coverageReporters": [
-      "html",
-      "text-summary"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/coverage/",
-      "<rootDir>/node_modules/",
-      "<rootDir>/stories/"
-    ],
-    "setupFiles": [
-      "<rootDir>/tests/__mocks__/shim.js",
-      "<rootDir>/tests/__mocks__/setupTests.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/tests/__mocks__/styleMock.js"
-    },
-    "testRegex": ".(test|spec)\\.jsx?$"
+      "lcov",
+      "text",
+      "html"
+    ]
   }
 }
