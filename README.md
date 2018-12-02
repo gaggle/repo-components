@@ -3,9 +3,8 @@ UI components for [repo-lister][repolister] project.
 
 
 ## Development
-* `npm test` to run tests and generate coverage
-* `npm run styleguide` to run local Styleguidist
-* `npm run build` to generate final release artifacts (outputted to `/build` and `styleguide` folders) 
+* `npm test` for tests and coverage
+* `npm run dev` will watch src files to generate artifacts and run local Styleguidist server
 
 
 ## Cutting a new release

@@ -5,9 +5,10 @@
   "main": "build/index.js",
   "scripts": {
     "build": "babel src -d build --no-comments --compact true --minified -s true && styleguidist build",
-    "clean": "rm -rf build/ coverage/ node_modules/.cache/ styleguide/",
-    "dev": "babel src -w -d build",
-    "styleguide": "styleguidist server",
+    "clean": "rm -rf .dev/ build/ coverage/ node_modules/.cache/ styleguide/",
+    "dev": "concurrently \"npm:dev:build\" \"npm:dev:styleguide\"",
+    "dev:build": "babel src -w -d .dev",
+    "dev:styleguide": "styleguidist server",
     "test": "jest --no-cache --silent --coverage"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "@babel/plugin-syntax-class-properties": "^7.0.0",
     "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "concurrently": "^4.1.0",
     "date-fns": "^1.29.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
