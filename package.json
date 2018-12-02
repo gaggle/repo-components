@@ -55,9 +55,6 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>tests/setupEnzyme.js",
-    "testPathIgnorePatterns": [
-      "<rootDir>/tests/setup/"
-    ],
     "collectCoverageFrom": [
       "src/**/*"
     ],
