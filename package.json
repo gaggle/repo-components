@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "babel src -d build --no-comments --compact true --minified -s true && styleguidist build",
-    "clean": "rm -rf .dev/ build/ coverage/ node_modules/.cache/ styleguide/",
+    "clean": "rm -rf .dev/ coverage/ node_modules/.cache/ styleguide/",
     "dev": "concurrently \"npm:dev:build\" \"npm:dev:styleguide\"",
     "dev:build": "babel src -w -d .dev",
     "dev:styleguide": "styleguidist server",
