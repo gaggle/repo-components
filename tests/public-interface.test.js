@@ -5,9 +5,10 @@ const componentNames = [
   'misc.Timestamp',
   'page.Layout',
   'page.Loading',
+  'page.Masonry',
   'renderprops.RenderIf',
   'renderprops.RenderIfElse',
-  'repocards.RepoCards',
+  'repocards.RepoCard',
 ]
 
 describe('Root interface', () => {

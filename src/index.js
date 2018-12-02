@@ -1,6 +1,7 @@
 import Layout from './components/page/Layout'
 import Loading from './components/page/Loading'
-import RepoCards from './components/repocards/RepoCards'
+import Masonry from './components/page/Masonry'
+import RepoCard from './components/repocards/RepoCard'
 import Timestamp from './components/Timestamp'
 
 import RenderIfElse from './renderprops/RenderIfElse'
@@ -13,12 +14,13 @@ module.exports = {
   page: {
     Layout,
     Loading,
+    Masonry,
   },
   renderprops: {
     RenderIf,
     RenderIfElse,
   },
   repocards: {
-    RepoCards
+    RepoCard
   },
 }
