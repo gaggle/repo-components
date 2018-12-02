@@ -10,7 +10,7 @@ UI components for [repo-lister][repolister] project.
 ## Cutting a new release
 Run this command to automatically increment version, build, commit, tag, and push a new release:
 ```bash
-npm version patch && (export VERSION=`node -p "require('./package.json').version"`; npm run build && git add ./build/ ./docs/ && git commit --amend --no-edit && git tag -fam $VERSION v$VERSION && git push && git push origin v$VERSION)
+npm version patch && npm run clean && (export VERSION=`node -p "require('./package.json').version"`; npm run build && git add ./build/ ./docs/ && git commit --amend --no-edit && git tag -fam $VERSION v$VERSION && git push && git push origin v$VERSION)
 ```
 
 
