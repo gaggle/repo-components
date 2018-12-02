@@ -1,7 +1,7 @@
 import GithubColors from 'github-colors'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { capitalize } from 'lodash'
+import capitalize from 'lodash/capitalize'
 
 export default class Language extends Component {
 
