@@ -1,5 +1,5 @@
 Render a link with class "active" if Next.js router says this is the current url:
-    ```js
+```js
 <ActiveLink href="http://foo.com">Foo</ActiveLink>
 ```
 
