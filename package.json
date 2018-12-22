@@ -4,10 +4,12 @@
   "license": "ISC",
   "main": "build/index.js",
   "scripts": {
-    "build": "babel src -d build --no-comments --compact true --minified -s true && styleguidist build",
-    "clean": "rm -rf coverage/ node_modules/.cache/ && git checkout build/ docs/",
-    "dev": "concurrently \"npm:dev:build\" \"npm:dev:styleguide\"",
-    "dev:build": "babel src -w -d build",
+    "build": "concurrently \"npm:build:*\"",
+    "build:components": "babel src -d build --no-comments --compact true --minified -s true",
+    "build:styleguide": "styleguidist build",
+    "clean": "rm -rf coverage/ node_modules/.cache/ && git checkout build/ docs/ && git clean -f build/ docs/",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:components": "babel src -w -d build",
     "dev:styleguide": "styleguidist server",
     "test": "jest --no-cache --silent --coverage"
   },
