@@ -1,4 +1,4 @@
-# repo-components
+# repo-components [![Build Status](https://travis-ci.org/gaggle/repo-components.svg?branch=master)](https://travis-ci.org/gaggle/repo-components)
 UI components for [repo-lister][repolister] project. 
 
 
