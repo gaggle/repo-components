@@ -50,11 +50,19 @@ class Nav extends Component {
           <div className="navbar-start">
           </div>
           <div className="navbar-end">
-            <Link href="https://github.com/gaggle/repo-lister">
-              <a className="navbar-item">
-                <span className="icon"><Ionicon icon="logo-github"/></span>
-                <span className="is-hidden-desktop">GitHub</span>
-              </a>
+            <Link href="https://github.com/gaggle/repos.jonlauridsen.com">
+              <nav className="level is-mobile">
+                <a>
+                  <div className="navbar-item level-left">
+                    <div className="level-item">
+                      <span className="icon"><Ionicon icon="logo-github"/></span>
+                    </div>
+                    <div className="level-item">
+                      <span className="is-hidden-desktop">GitHub</span>
+                    </div>
+                  </div>
+                </a>
+              </nav>
             </Link>
           </div>
         </div>
