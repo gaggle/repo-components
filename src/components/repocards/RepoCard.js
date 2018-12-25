@@ -42,11 +42,9 @@ export class RepoCard extends Component {
 
   render () {
     return (
-      <div
-        id={this.props.id}
-        className={`repo-card ${this.props.className}`}
-        onDoubleClick={this.goToDetails}
-      >
+      <div id={this.props.id}
+           className={`repo-card ${this.props.className}`}
+           onDoubleClick={this.goToDetails}>
         <RepoTitle owner={this.props.owner_name}
                    repo={this.props.repo_name}/>
         <div>{this.props.description}</div>
