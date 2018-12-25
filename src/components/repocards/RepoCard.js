@@ -16,13 +16,14 @@ export class RepoCard extends Component {
     description: PropTypes.string,
     id: PropTypes.any,
     language: PropTypes.string,
-    open_issues: PropTypes.number,
-    open_issues_html_url: PropTypes.string,
-    open_pullrequests: PropTypes.number,
-    open_pullrequests_html_url: PropTypes.string,
-    owner_name: PropTypes.string,
-    readme_html: PropTypes.string,
-    repo_name: PropTypes.string,
+    linkTo: PropTypes.string,
+    openIssues: PropTypes.number,
+    openIssuesHtmlUrl: PropTypes.string,
+    openPullrequests: PropTypes.number,
+    openPullrequestsHtmlUrl: PropTypes.string,
+    ownerName: PropTypes.string,
+    readmeHtml: PropTypes.string,
+    repoName: PropTypes.string,
   }
 
   static defaultProps = {
@@ -37,6 +38,7 @@ export class RepoCard extends Component {
   }
 
   goToDetails () {
+    if (!this.props.linkTo) return
     window.location = this.details.current.getAttribute('href')
   }
 
@@ -65,12 +67,12 @@ export class RepoCard extends Component {
             <img key={el.src} src={join('static', 'repos', el.src)}/>
           )}
         </div>
-        <Link href={{pathname: '/repos', query: {id: this.props.id}}}
-              as={`/repos/${this.props.id}`}>
-          <a ref={this.details}>
-            Details
-          </a>
-        </Link>
+        <RenderIf test={!!this.props.linkTo} render={() =>
+          <Link href={{pathname: '/repos', query: {id: this.props.linkTo}}}
+                as={`/repos/${this.props.linkTo}`}>
+            <a ref={this.details}>Details</a>
+          </Link>
+        }/>
         <style jsx="true">{`
         .github-badges > :global(*) {
           margin: 1px 8px 1px 0;
