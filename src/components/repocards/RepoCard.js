@@ -12,7 +12,7 @@ import RepoTitle from './RepoCardTitle'
 
 export class RepoCard extends Component {
   static propTypes = {
-    badges: PropTypes.arrayOf(PropTypes.shape({})),
+    badges: PropTypes.arrayOf(PropTypes.shape({src: PropTypes.string})),
     description: PropTypes.string,
     id: PropTypes.any,
     language: PropTypes.string,
@@ -47,20 +47,20 @@ export class RepoCard extends Component {
       <div id={this.props.id}
            className={`repo-card ${this.props.className}`}
            onDoubleClick={this.goToDetails}>
-        <RepoTitle owner={this.props.owner_name}
-                   repo={this.props.repo_name}/>
+        <RepoTitle owner={this.props.ownerName}
+                   repo={this.props.repoName}/>
         <div>{this.props.description}</div>
         <div className="github-badges">
           <RenderIf test={this.props.language} render={() =>
             <Language language={this.props.language}/>
           }/>
-          <RenderIf test={this.props.open_issues !== undefined} render={() =>
-            <Issues count={this.props.open_issues}/>
+          <RenderIf test={this.props.openIssues !== undefined} render={() =>
+            <Issues count={this.props.openIssues}/>
           }/>
-          <RenderIf test={this.props.open_pullrequests !== undefined} render={() =>
-            <PullRequests count={this.props.open_pullrequests}/>
+          <RenderIf test={this.props.openPullrequests !== undefined} render={() =>
+            <PullRequests count={this.props.openPullrequests}/>
           }/>
-          <RenderIf test={!!this.props.readme_html} render={() => <ReadmeBadge/>}/>
+          <RenderIf test={!!this.props.readmeHtml} render={() => <ReadmeBadge/>}/>
         </div>
         <div className="readme-badges">
           {this.props.badges.map(el =>
