@@ -12,8 +12,8 @@ describe('getDatetime', () => {
   })
 
   it('understands timestamp string', () => {
-    const result = getDatetime('1980-02-26T00:00:00+00:00')
-    expect(result.getTime()).toBe(320371200000)
+    const result = getDatetime('1980-02-26T12:30:00+01:00')
+    expect(result.getTime()).toBe(320412600000)
   })
 
   it('throws error if string is invalid', () => {
