@@ -5,6 +5,14 @@ import React, { Component } from 'react'
 
 import { getDatetime } from '../lib/dates'
 
+/**
+ * Nice human-readable timestamp
+ *
+ * Time is shown relative if possible,
+ * and automatically updates as that time recedes into the past.
+ * `startDate` can be epoch or any date-string understood by Javascript `Date` class
+ * (e.g. `1980-02-26T12:30:00+01:00`)
+ */
 class Timestamp extends Component {
   static pooledElements = []
   static pooledInterval = 1000

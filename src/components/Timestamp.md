@@ -1,6 +1,3 @@
-Show a timestamp relative to the client's time,
-constantly updating to present a nice human-readable text.
-
 Default timestamp is moment of component creation:
 ```js
 <Timestamp/>
