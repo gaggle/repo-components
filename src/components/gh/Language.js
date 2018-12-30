@@ -31,6 +31,7 @@ export default class Language extends Component {
             white-space: nowrap;
           }
           .color {
+            cursor: default;
             padding-right: 2px;
           }
         `}</style>
