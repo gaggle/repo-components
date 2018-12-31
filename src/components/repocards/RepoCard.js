@@ -45,34 +45,43 @@ export class RepoCard extends Component {
   render () {
     return (
       <div id={this.props.id}
-           className={`repo-card ${this.props.className}`}
+           className={`card repo-card ${this.props.className}`}
            onDoubleClick={this.goToDetails}>
-        <RepoTitle owner={this.props.ownerName}
-                   repo={this.props.repoName}/>
-        <div>{this.props.description}</div>
-        <div className="github-badges">
-          <RenderIf test={this.props.language} render={() =>
-            <Language language={this.props.language}/>
-          }/>
-          <RenderIf test={this.props.openIssues !== undefined} render={() =>
-            <Issues count={this.props.openIssues}/>
-          }/>
-          <RenderIf test={this.props.openPullrequests !== undefined} render={() =>
-            <PullRequests count={this.props.openPullrequests}/>
-          }/>
-          <RenderIf test={!!this.props.readmeHtml} render={() => <ReadmeBadge/>}/>
+        <header className="card-header">
+          <p className="card-header-title">
+            <RepoTitle owner={this.props.ownerName}
+                       repo={this.props.repoName}/>
+          </p>
+        </header>
+
+        <div className="card-content">
+          <div className="content">
+            <div className="description has-text-black-ter">{this.props.description}</div>
+            <div className="github-badges">
+              <RenderIf test={this.props.language} render={() =>
+                <Language language={this.props.language}/>
+              }/>
+              <RenderIf test={this.props.openIssues !== undefined} render={() =>
+                <Issues count={this.props.openIssues}/>
+              }/>
+              <RenderIf test={this.props.openPullrequests !== undefined} render={() =>
+                <PullRequests count={this.props.openPullrequests}/>
+              }/>
+              <RenderIf test={!!this.props.readmeHtml} render={() => <ReadmeBadge/>}/>
+            </div>
+            <div className="readme-badges">
+              {this.props.badges.map(el =>
+                <img key={el.src} src={join('static', 'repos', el.src)}/>
+              )}
+            </div>
+            <RenderIf test={!!this.props.linkTo} render={() =>
+              <Link href={{pathname: '/repos', query: {id: this.props.linkTo}}}
+                    as={`/repos/${this.props.linkTo}`}>
+                <a ref={this.details}>Details</a>
+              </Link>
+            }/>
+          </div>
         </div>
-        <div className="readme-badges">
-          {this.props.badges.map(el =>
-            <img key={el.src} src={join('static', 'repos', el.src)}/>
-          )}
-        </div>
-        <RenderIf test={!!this.props.linkTo} render={() =>
-          <Link href={{pathname: '/repos', query: {id: this.props.linkTo}}}
-                as={`/repos/${this.props.linkTo}`}>
-            <a ref={this.details}>Details</a>
-          </Link>
-        }/>
         <style jsx="true">{`
         .github-badges > :global(*) {
           margin: 1px 8px 1px 0;
