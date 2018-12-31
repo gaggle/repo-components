@@ -29,7 +29,7 @@ class Issues extends Component {
     </Fragment>
 
     return (
-      <span className="issues-badge">
+      <span className="issues-badge" title={`${this.props.count} open issues`}>
         <RenderIfElse
           test={this.props.href}
           pass={() => <Link href={this.props.href}><a><Element/></a></Link>}

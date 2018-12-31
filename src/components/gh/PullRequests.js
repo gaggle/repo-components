@@ -29,7 +29,7 @@ class PullRequests extends Component {
     </Fragment>
 
     return (
-      <span className="pr-badge">
+      <span className="pr-badge" title={`${this.props.count} open pullrequests`}>
         <RenderIfElse
           test={this.props.href}
           pass={() => <Link href={this.props.href}><a><Element/></a></Link>}
