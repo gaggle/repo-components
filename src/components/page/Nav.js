@@ -50,8 +50,8 @@ class Nav extends Component {
           <div className="navbar-start">
           </div>
           <div className="navbar-end">
-            <Link href="https://github.com/gaggle/repos.jonlauridsen.com">
-              <nav className="level is-mobile">
+            <nav className="level is-mobile">
+              <Link href="https://github.com/gaggle/repos.jonlauridsen.com">
                 <a>
                   <div className="navbar-item level-left">
                     <div className="level-item">
@@ -62,8 +62,8 @@ class Nav extends Component {
                     </div>
                   </div>
                 </a>
-              </nav>
-            </Link>
+              </Link>
+            </nav>
           </div>
         </div>
       </div>
