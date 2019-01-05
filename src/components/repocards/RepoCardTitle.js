@@ -13,7 +13,7 @@ class RepoCardTitle extends Component {
   }
 
   render () {
-    return <div>
+    return <span>
       <OptionalLink href={this.props.owner_url}>
         {this.props.owner}
       </OptionalLink>
@@ -21,7 +21,7 @@ class RepoCardTitle extends Component {
       <OptionalLink href={this.props.repo_url}>
         {this.props.repo}
       </OptionalLink>
-    </div>
+    </span>
   }
 }
 
