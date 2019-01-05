@@ -14,9 +14,9 @@ export class RepoCard extends Component {
   static propTypes = {
     badges: PropTypes.arrayOf(PropTypes.shape({src: PropTypes.string})),
     description: PropTypes.string,
+    detailsLink: PropTypes.string,
     id: PropTypes.any,
     language: PropTypes.string,
-    linkTo: PropTypes.string,
     openIssues: PropTypes.number,
     openIssuesHtmlUrl: PropTypes.string,
     openPullrequests: PropTypes.number,
@@ -38,7 +38,7 @@ export class RepoCard extends Component {
   }
 
   goToDetails () {
-    if (!this.props.linkTo) return
+    if (!this.props.detailsLink) return
     window.location = this.details.current.getAttribute('href')
   }
 
@@ -74,9 +74,9 @@ export class RepoCard extends Component {
                 <img key={el.src} src={join('static', 'repos', el.src)}/>
               )}
             </div>
-            <RenderIf test={!!this.props.linkTo} render={() =>
-              <Link href={{pathname: '/repos', query: {id: this.props.linkTo}}}
-                    as={`/repos/${this.props.linkTo}`}>
+            <RenderIf test={!!this.props.detailsLink} render={() =>
+              <Link href={{pathname: '/repos', query: {id: this.props.detailsLink}}}
+                    as={`/repos/${this.props.detailsLink}`}>
                 <a ref={this.details}>Details</a>
               </Link>
             }/>
