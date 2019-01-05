@@ -80,6 +80,9 @@ export class RepoCard extends Component {
                 <a ref={this.details}>Details</a>
               </Link>
             }/>
+            <RenderIf test={!!this.props.externalLink} render={() =>
+              <a href={this.props.externalLink} target="_blank">External</a>
+            }/>
           </div>
         </div>
         <style jsx="true">{`

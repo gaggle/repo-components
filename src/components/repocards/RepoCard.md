@@ -21,5 +21,6 @@ And with links:
           ownerName="owner"
           readmeHtml="foo"
           repoName="repo"
-          detailsLink="foo"/>
+          detailsLink="foo"
+          externalLink="http://example.com"/>
 ```

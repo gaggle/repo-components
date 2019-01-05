@@ -8,4 +8,9 @@ describe('RepoCard', () => {
     const comp = mount(<RepoCard detailsLink={"foo"}/>)
     expect(comp.find('a').prop('href')).toEqual('/repos/foo')
   })
+
+  it('should support linking to an external page', () => {
+    const comp = mount(<RepoCard externalLink={"http://example.com"}/>)
+    expect(comp.find('a').prop('href')).toEqual('http://example.com')
+  })
 })
