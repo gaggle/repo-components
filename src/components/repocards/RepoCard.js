@@ -1,3 +1,4 @@
+import Ionicon from 'react-ionicons'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -81,7 +82,16 @@ export class RepoCard extends Component {
               </Link>
             }/>
             <RenderIf test={!!this.props.externalLink} render={() =>
-              <a href={this.props.externalLink} target="_blank">External</a>
+              <footer className="card-footer">
+                <p className="card-footer-item is-pulled-right">
+                  <a className="external-link"
+                     title="Go to repo"
+                     href={this.props.externalLink}
+                     target="_blank">
+                    <Ionicon className="icon link-icon" icon="md-link"/>
+                  </a>
+                </p>
+              </footer>
             }/>
           </div>
         </div>
